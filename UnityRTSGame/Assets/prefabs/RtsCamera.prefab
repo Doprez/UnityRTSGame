@@ -31,8 +31,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 3.49, y: 1.41, z: 7.62}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 3688728383709955083}
+  m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -50,15 +49,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MoveSpeed: 8
   SprintSpeed: 16
-  SpeedChangeRate: 10
-  CameraAngleOverride: 0
   HorizontalSensitivity: 1
   VerticalSensitivity: 1
-  CinemachineCameraTarget: {fileID: 3688728383709955082}
+  ScrollSpeed: 1
+  MaxCameraHeight: 20
+  MinCameraHeight: 0
+  CameraAngleOverride: 0
+  SpeedChangeRate: 10
+  CinemachineCameraTarget: {fileID: 3688728383450531223}
   BottomClamp: 10
   TopClamp: 85
+  unitSelectionArea: {fileID: 0}
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 0
+  rtsHandler: {fileID: 0}
+  inputStateHandler: {fileID: 0}
   RotationSmoothTime: 0.12
-  _cameraRoot: {fileID: 3688728383709955082}
+  _cameraRoot: {fileID: 0}
 --- !u!114 &3688728383450531226
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -73,7 +81,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   move: {x: 0, y: 0}
   look: {x: 0, y: 0}
+  scroll: {x: 0, y: 0}
   sprint: 0
+  select: 0
+  EnableCameraRotate: 0
   analogMovement: 0
 --- !u!114 &3688728383450531227
 MonoBehaviour:
@@ -140,33 +151,3 @@ MonoBehaviour:
     m_Bits: 0
   canPush: 0
   strength: 1.1
---- !u!1 &3688728383709955082
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 3688728383709955083}
-  m_Layer: 0
-  m_Name: RTSCameraRoot
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &3688728383709955083
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3688728383709955082}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 3, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 3688728383450531221}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

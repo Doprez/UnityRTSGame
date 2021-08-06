@@ -14,7 +14,7 @@ public class RTSInputController : MonoBehaviour
     public float SprintSpeed = 2;
     public float HorizontalSensitivity = 1f;
     public float VerticalSensitivity = 1f;
-    public float ScrollSpeed;
+    public float ScrollSpeed = 1;
     public float MaxCameraHeight;
     public float MinCameraHeight;
 
@@ -43,7 +43,6 @@ public class RTSInputController : MonoBehaviour
 
     [Range(0.0f, 0.3f)]
     public float RotationSmoothTime = 0.12f;
-    public GameObject _cameraRoot;
 
     private RTSInputs _input;
     private CharacterController _controller;

@@ -61,7 +61,7 @@ public class Unit : MonoBehaviour
         if(TargetPickupItem != null)
         {
             Debug.Log("Item TargetPickupItem.transform.position.magnitude: " + TargetPickupItem.transform.position.magnitude);
-            if(TargetPickupItem.transform.position.magnitude - gameObject.transform.position.magnitude < 1 && TargetPickupItem.TryGetComponent(out GroundItem groundItem))
+            if(TargetPickupItem.transform.position.magnitude - gameObject.transform.position.magnitude < 0.5 && TargetPickupItem.TryGetComponent(out GroundItem groundItem))
             {
                 UnitInventory.Add(groundItem.item);
                 Destroy(TargetPickupItem);
