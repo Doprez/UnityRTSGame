@@ -60,8 +60,9 @@ public class Unit : MonoBehaviour
     {
         if(TargetPickupItem != null)
         {
-            Debug.Log("Item TargetPickupItem.transform.position.magnitude: " + TargetPickupItem.transform.position.magnitude);
-            if(TargetPickupItem.transform.position.magnitude - gameObject.transform.position.magnitude < 0.5 && TargetPickupItem.TryGetComponent(out GroundItem groundItem))
+            var distance = TargetPickupItem.transform.position.magnitude - gameObject.transform.position.magnitude;
+            Debug.Log("Item TargetPickupItem.transform.position.magnitude: " + distance);
+            if(distance < 1f && distance > -1f && TargetPickupItem.TryGetComponent(out GroundItem groundItem))
             {
                 UnitInventory.Add(groundItem.item);
                 Destroy(TargetPickupItem);
