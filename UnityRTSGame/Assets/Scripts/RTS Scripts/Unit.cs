@@ -13,6 +13,7 @@ public class Unit : MonoBehaviour
     private Animator _animator;
     public GameObject TargetPickupItem;
     public List<ItemObject> UnitInventory;
+    public Unit CommandingUnit;
 
     [Header("NavMesh Options")]
     public NavMeshAgent agent;
@@ -53,7 +54,18 @@ public class Unit : MonoBehaviour
     {
         AssignAnimationIDs();
         AnimateUnit();
+        FollowCommandingunit();
+    }
+
+    private void FixedUpdate()
+    {
         CheckForPickUpItem();
+    }
+
+    public void FollowCommandingunit()
+    {
+        if(CommandingUnit != null)
+            GetComponent<NavMeshAgent>().SetDestination(CommandingUnit.transform.position);
     }
 
     public void CheckForPickUpItem()

@@ -2029,7 +2029,7 @@ GameObject:
   - component: {fileID: 9057212810568027176}
   - component: {fileID: 6974735128807790971}
   m_Layer: 3
-  m_Name: PT_Medieval_Male_Peasant_01 1
+  m_Name: Peasant Male
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2210,7 +2210,7 @@ MonoBehaviour:
   agent: {fileID: 0}
   SpeedChangeRate: 10
   Grounded: 1
-  GroundedOffset: -0.14
+  GroundedOffset: 0
   GroundedRadius: 0.28
   GroundLayers:
     serializedVersion: 2
@@ -2241,7 +2241,7 @@ NavMeshAgent:
   m_Radius: 0.5
   m_Speed: 4
   m_Acceleration: 8
-  avoidancePriority: 50
+  avoidancePriority: 0
   m_AngularSpeed: 120
   m_StoppingDistance: 1
   m_AutoTraverseOffMeshLink: 1
@@ -2249,7 +2249,7 @@ NavMeshAgent:
   m_AutoRepath: 1
   m_Height: 2
   m_BaseOffset: 0
-  m_WalkableMask: 4294967295
+  m_WalkableMask: 5
   m_ObstacleAvoidanceType: 1
 --- !u!1 &2604637748129905592
 GameObject:

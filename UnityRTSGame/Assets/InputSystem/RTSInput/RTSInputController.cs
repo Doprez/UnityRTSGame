@@ -88,7 +88,7 @@ public class RTSInputController : MonoBehaviour
     private void MoveUnit()
     {
         
-        if (Mouse.current.rightButton.IsPressed())
+        if (Mouse.current.rightButton.wasReleasedThisFrame)
         {
             Vector2 mousePosition = Mouse.current.position.ReadValue();
 
@@ -106,12 +106,14 @@ public class RTSInputController : MonoBehaviour
                 }
                 else
                 {
-                    foreach (var unit in SelectedUnits)
+                    SelectedUnits[0].agent.SetDestination(hit.point);
+                    for(int i = 1; i < SelectedUnits.Count; i++)//start at index one to not assign destination to first commanding unit
                     {
-                        if (unit.IsSelected)
+                        if (SelectedUnits[i].IsSelected)
                         {
-                            unit.agent.SetDestination(hit.point);
-                            unit.ClearTargetPickUpObject();
+                            //unit.agent.SetDestination(hit.point);
+                            SelectedUnits[i].CommandingUnit = SelectedUnits[0];
+                            SelectedUnits[i].ClearTargetPickUpObject();
                         }
                     }
                 }
