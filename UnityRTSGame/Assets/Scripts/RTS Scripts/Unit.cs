@@ -17,6 +17,8 @@ public class Unit : MonoBehaviour
 
     [Header("NavMesh Options")]
     public NavMeshAgent agent;
+    public float FollowCommanderOffsetx;
+    public float FollowCommanderOffsetz;
 
     private bool _hasAnimator;
     private float _animationBlend;
@@ -64,8 +66,17 @@ public class Unit : MonoBehaviour
 
     public void FollowCommandingunit()
     {
-        if(CommandingUnit != null)
-            GetComponent<NavMeshAgent>().SetDestination(CommandingUnit.transform.position);
+        if (CommandingUnit != null)
+        {
+            if(FollowCommanderOffsetx == 0 || FollowCommanderOffsetz == 0)
+            {
+                FollowCommanderOffsetx = Random.Range(-10, 10);
+                FollowCommanderOffsetz = Random.Range(-10, 10);
+            }
+            var destination = new Vector3(CommandingUnit.transform.position.x + FollowCommanderOffsetx, CommandingUnit.transform.position.y, CommandingUnit.transform.position.z + FollowCommanderOffsetz);
+            GetComponent<NavMeshAgent>().SetDestination(destination);
+            
+        }
     }
 
     public void CheckForPickUpItem()

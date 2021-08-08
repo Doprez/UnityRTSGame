@@ -100,20 +100,25 @@ public class RTSInputController : MonoBehaviour
                 {
                     if (SelectedUnits.Count > 0)
                     {
+                        SelectedUnits[0].CommandingUnit = null;
                         SelectedUnits[0].agent.SetDestination(hit.point);
                         SelectedUnits[0].SetTargetPickUpObject(groundItem.gameObject);
                     }
                 }
                 else
                 {
+                    SelectedUnits[0].CommandingUnit = null;
                     SelectedUnits[0].agent.SetDestination(hit.point);
-                    for(int i = 1; i < SelectedUnits.Count; i++)//start at index one to not assign destination to first commanding unit
+                    if (SelectedUnits.Count > 1)
                     {
-                        if (SelectedUnits[i].IsSelected)
+                        for (int i = 1; i < SelectedUnits.Count; i++)//start at index one to not assign destination to first commanding unit
                         {
-                            //unit.agent.SetDestination(hit.point);
-                            SelectedUnits[i].CommandingUnit = SelectedUnits[0];
-                            SelectedUnits[i].ClearTargetPickUpObject();
+                            if (SelectedUnits[i].IsSelected)
+                            {
+                                //SelectedUnits[i].agent.SetDestination(hit.point);
+                                SelectedUnits[i].CommandingUnit = SelectedUnits[0];
+                                SelectedUnits[i].ClearTargetPickUpObject();
+                            }
                         }
                     }
                 }
@@ -243,6 +248,8 @@ public class RTSInputController : MonoBehaviour
             Ray ray = _mainCamera.GetComponent<Camera>().ScreenPointToRay(Mouse.current.position.ReadValue());
 
             if (!Physics.Raycast(ray, out hit, Mathf.Infinity, layerMask)) { return; }
+
+
             SelectSingleUnit();
             return;
         }
@@ -268,7 +275,7 @@ public class RTSInputController : MonoBehaviour
     {
         if (hit.collider.TryGetComponent(out Unit unit))
         {
-
+            SelectedUnits.Clear();
             SelectedUnits.Add(unit);
 
             foreach (var selectedUnit in SelectedUnits)
