@@ -1,9 +1,11 @@
+using System;
 using StarterAssets;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.InputSystem;
+using Random = UnityEngine.Random;
 
 public class Unit : MonoBehaviour
 {
@@ -43,7 +45,6 @@ public class Unit : MonoBehaviour
     public float GroundedRadius = 0.28f;
     [Tooltip("What layers the character uses as ground")]
     public LayerMask GroundLayers;
-
 
     private void Start()
     {
@@ -158,7 +159,5 @@ public class Unit : MonoBehaviour
     {
         return UnitCameraRoot;
     }
-
-
 
 }
