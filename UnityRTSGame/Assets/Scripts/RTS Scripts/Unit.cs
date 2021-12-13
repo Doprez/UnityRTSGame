@@ -12,7 +12,7 @@ public class Unit : MonoBehaviour
     public GameObject UnitCameraRoot;
     private Animator _animator;
     public GameObject TargetPickupItem;
-    public List<ItemObject> UnitInventory;
+    public UnitInventory Inventory;
     public Unit CommandingUnit;
 
     [Header("NavMesh Options")]
@@ -50,13 +50,14 @@ public class Unit : MonoBehaviour
         AssignAnimationIDs();
         _animator = GetComponent<Animator>();
         agent = GetComponent<NavMeshAgent>();
+        Inventory = GetComponent<UnitInventory>();
     }
 
     private void Update()
     {
         AssignAnimationIDs();
         AnimateUnit();
-        FollowCommandingunit();
+        FollowCommandingUnit();
     }
 
     private void FixedUpdate()
@@ -64,7 +65,7 @@ public class Unit : MonoBehaviour
         CheckForPickUpItem();
     }
 
-    public void FollowCommandingunit()
+    public void FollowCommandingUnit()
     {
         if (CommandingUnit != null)
         {
@@ -87,7 +88,7 @@ public class Unit : MonoBehaviour
             Debug.Log("Item TargetPickupItem.transform.position.magnitude: " + distance);
             if(distance < 1f && distance > -1f && TargetPickupItem.TryGetComponent(out GroundItem groundItem))
             {
-                UnitInventory.Add(groundItem.item);
+                Inventory.Inventory.Add(groundItem.item);
                 Destroy(TargetPickupItem);
                 ClearTargetPickUpObject();
             }

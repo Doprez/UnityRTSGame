@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641258, b: 0.5748172, a: 1}
+  m_IndirectSpecularColor: {r: 0.44658822, g: 0.49642307, b: 0.5748253, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -3993,7 +3993,7 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 6.07e-43, y: 1.7943326e+18, z: 4.5904e-41, w: -15.351128}
+  m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
   m_UseBoundingSphereOverride: 0
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
@@ -5801,7 +5801,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5430361230763748455, guid: f8acf4f8bf3c1454bb39f165d5c4ce19, type: 3}
   m_PrefabInstance: {fileID: 410936921}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1738550586}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: dae298967aee11545980679c01381a2d, type: 3}
@@ -12265,6 +12265,24 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f8acf4f8bf3c1454bb39f165d5c4ce19, type: 3}
+--- !u!1 &1738550586 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2604637748129905590, guid: f8acf4f8bf3c1454bb39f165d5c4ce19, type: 3}
+  m_PrefabInstance: {fileID: 410936921}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1738550587
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1738550586}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6765da6beaae4ab1891a811aa8160959, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Inventory: []
 --- !u!114 &1742080893 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5430361230763748455, guid: f8acf4f8bf3c1454bb39f165d5c4ce19, type: 3}
